@@ -21,13 +21,16 @@ trap 'rm -rf "$SWIFT_BUILD_DIR" "${WORK_DIR:-}"' EXIT
 mkdir -p "$ROOT_DIR/.build/ModuleCache" "$DIST_DIR"
 export CLANG_MODULE_CACHE_PATH="$ROOT_DIR/.build/ModuleCache"
 cd "$ROOT_DIR"
-swift build -c release --arch arm64 --arch x86_64 \
+# Keep build-machine paths out of the shipped binary.
+PREFIX_MAP=(-Xswiftc -file-prefix-map -Xswiftc "$ROOT_DIR=." -Xswiftc -file-prefix-map -Xswiftc "$SWIFT_BUILD_DIR=build")
+swift build -c release --arch arm64 --arch x86_64 "${PREFIX_MAP[@]}" \
   --scratch-path "$SWIFT_BUILD_DIR" --cache-path "$ROOT_DIR/.build/cache" \
   --manifest-cache local --disable-sandbox
-BUILD_BINARY="$(swift build -c release --arch arm64 --arch x86_64 \
+BUILD_BINARY="$(swift build -c release --arch arm64 --arch x86_64 "${PREFIX_MAP[@]}" \
   --scratch-path "$SWIFT_BUILD_DIR" --cache-path "$ROOT_DIR/.build/cache" \
   --manifest-cache local --disable-sandbox --show-bin-path)/$EXECUTABLE"
 
+strip -S -x "$BUILD_BINARY"
 rm -rf "$APP_BUNDLE" "$ICONSET"
 mkdir -p "$APP_MACOS" "$APP_RESOURCES" "$ICONSET"
 cp "$BUILD_BINARY" "$APP_BINARY"
