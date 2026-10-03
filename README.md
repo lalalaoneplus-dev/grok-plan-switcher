@@ -2,6 +2,10 @@
 
 A macOS app for viewing the remaining shared Grok usage pool for two Grok Build logins and opening the CLI under the selected login.
 
+## Install
+
+Download the latest `.dmg` from [Releases](https://github.com/lalalaoneplus-dev/grok-plan-switcher/releases/latest), open it, and drag Grok Plan Switcher to Applications.
+
 The custom Grok-and-switch icon is in `Resources/AppIcon.svg` (PNG preview: `Resources/AppIcon.png`). The app build renders it into the bundle's `.icns` icon.
 
 ## First use
@@ -20,5 +24,7 @@ Plan 1 uses the existing `~/.grok` login. Plan 2 has its own login in `~/.grok-p
 ```sh
 ./script/build_and_run.sh
 ```
+
+Run `./script/package.sh` to build a universal release DMG in `dist/`.
 
 The usage display reads each profile's existing Grok CLI login and sends a read-only billing request to xAI. It mirrors the internal endpoint used by Grok Build's usage screen; xAI may change that endpoint without notice. Tokens are kept in memory for the request and are not written to app logs or sent to another host.
