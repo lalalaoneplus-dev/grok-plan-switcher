@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.55" stop-color="#17172D"/>
+      <stop offset="1" stop-color="#242046"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.38" r="0.68">
+      <stop offset="0" stop-color="#6560B8" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#6560B8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="warm" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#F05D43"/>
+      <stop offset="1" stop-color="#FFB454"/>
+    </linearGradient>
+    <linearGradient id="cool" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4DD7D0"/>
+      <stop offset="1" stop-color="#66A9FF"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D8E5FF"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="28" y="28" width="968" height="968" rx="228" fill="url(#background)"/>
+  <rect x="28" y="28" width="968" height="968" rx="228" fill="url(#glow)"/>
+  <rect x="29" y="29" width="966" height="966" rx="227" fill="none" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="2"/>
+
+  <circle cx="512" cy="512" r="302" fill="none" stroke="#FFFFFF" stroke-opacity="0.075" stroke-width="3"/>
+
+  <path d="M286 424 C330 306 440 235 559 243 C641 249 704 291 744 347"
+        fill="none" stroke="url(#warm)" stroke-width="56" stroke-linecap="round"/>
+  <path d="M786 405 L714 370 L774 324 Z" fill="#FF9B4A"/>
+
+  <path d="M738 600 C694 718 584 789 465 779 C383 772 320 732 278 667"
+        fill="none" stroke="url(#cool)" stroke-width="56" stroke-linecap="round"/>
+  <path d="M237 606 L308 647 L248 687 Z" fill="#59CFE5"/>
+
+  <circle cx="512" cy="512" r="126" fill="#FFFFFF" fill-opacity="0.075" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="2"/>
+  <path d="M512 398 C528 463 561 496 626 512 C561 528 528 561 512 626 C496 561 463 528 398 512 C463 496 496 463 512 398 Z"
+        fill="url(#spark)"/>
+  <circle cx="512" cy="512" r="15" fill="#FF9B4A"/>
+</svg>
